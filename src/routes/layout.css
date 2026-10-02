@@ -1,0 +1,96 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+
+:root {
+  /* Светлая тема в стиле TiK: зелёный + оранжевый */
+  --bg: #f4f6f8;
+  --bg-elev: #ffffff;
+  --bg-elev-2: #edf1f2;
+  --border: rgba(16, 42, 47, 0.10);
+  --text: #14282c;
+  --text-dim: #5d7579;
+
+  --accent: #0092a1;
+  --accent-deep: #00695c;
+  --accent-grad: linear-gradient(135deg, #00a896 0%, #00897b 100%);
+  --accent-glow: rgba(0, 137, 123, 0.28);
+  --accent-soft: rgba(0, 137, 123, 0.2);
+
+  --orange: #f58220;
+  --orange-soft: rgba(245, 130, 32, 0.12);
+
+  --danger: #d64550;
+  --success: #00a896;
+  --warn: #f58220;
+  --radius: 14px;
+  --shadow: 0 8px 24px rgba(20, 45, 50, 0.10);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }  /* десктоп-приложение: страница не скроллится никогда */
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.45 "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(0, 168, 150, 0.25); }
+
+/* ---------- Скроллбары (Chromium / WebView2) ---------- */
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-corner { background: transparent; }
+
+::-webkit-scrollbar-thumb {
+  background: rgba(20, 45, 50, 0.18);
+  border: 4px solid transparent;   /* «отступ» полоски от краёв контейнера */
+  border-radius: 999px;
+  background-clip: padding-box;    /* краска только внутри border → тонкая пилюля */
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(20, 45, 50, 0.34);
+  background-clip: padding-box;
+}
+
+/* Эффект «появляется при наведении»: пока не ховеришь контейнер — бар невидим */
+.messages::-webkit-scrollbar-thumb,
+.chats::-webkit-scrollbar-thumb,
+.results::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+.messages:hover::-webkit-scrollbar-thumb,
+.chats:hover::-webkit-scrollbar-thumb,
+.results:hover::-webkit-scrollbar-thumb {
+  background: rgba(20, 45, 50, 0.18);
+  background-clip: padding-box;
+}
+
+input {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 9px 12px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+input::placeholder { color: var(--text-dim); }
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.06s, filter 0.15s, background 0.15s;
+}
+button:active { transform: scale(0.97); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
