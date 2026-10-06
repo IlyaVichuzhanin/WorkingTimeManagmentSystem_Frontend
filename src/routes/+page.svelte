@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
-  import { login, register } from "#lib/api.ts";
+  import { login } from "#lib/api.ts";
 //   import { authToken, currentUser } from "$lib/stores";
 //   import { loadSession, saveSession } from "$lib/session";
 
@@ -12,7 +12,7 @@
 
 
   async function doLogin() { await run(() => login(username, password)); }
-  async function doRegister() { await run(() => register(username, password)); }
+  // async function doRegister() { await run(() => register(username, password)); }
 
   async function run(fn: () => Promise<any>) {
     error = "";
@@ -46,9 +46,9 @@
     <button class="primary" type="submit" disabled={loading}>
       {loading ? "Подключение…" : "Войти"}
     </button>
-    <button class="ghost" type="button" on:click={doRegister} disabled={loading}>
+    <!-- <button class="ghost" type="button" on:click={doRegister} disabled={loading}>
       Создать аккаунт
-    </button>
+    </button> -->
   </form>
 </main>
 
