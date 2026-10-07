@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Breadcrumb, BreadcrumbItem, Button, Checkbox, Heading, Input, Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell, Toolbar, ToolbarButton } from "flowbite-svelte";
   import { CogSolid, DotsVerticalOutline, EditOutline, ExclamationCircleSolid, TrashBinSolid } from "flowbite-svelte-icons";
-  import { tasks as Tasks } from '#lib/data/tasks.ts';
+  import { tasks as Tasks } from '../../lib/data/tasks';
   import type { Component } from "svelte";
   
 
