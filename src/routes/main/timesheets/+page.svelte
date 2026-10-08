@@ -3,7 +3,6 @@
     Breadcrumb,
     BreadcrumbItem,
     Heading,
-    Button,
     Badge,
     Datepicker,
     Table,
@@ -14,6 +13,7 @@
     TableBodyCell,
     Input
   } from 'flowbite-svelte';
+  import { Button } from "@svar-ui/svelte-core";
   import { tasks } from '#lib/data/tasks.ts';
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
@@ -115,7 +115,7 @@
   <!-- Левая часть: дата отчета -->
   <div class="flex flex-wrap items-center gap-3">
     <span class="text-base font-semibold text-gray-900 dark:text-white">Дата отчета</span>
-    <Button color="light" size="sm" onclick={() => shiftDay(-1)}>◀</Button>
+    <Button type="primary" css="btn-sm" onclick={() => shiftDay(-1)}>◀</Button>
     <div class="w-44">
       <Datepicker
         bind:value={date}
@@ -124,7 +124,7 @@
         placeholder="Выберите дату"
       />
     </div>
-    <Button color="light" size="sm" onclick={() => shiftDay(1)}>▶</Button>
+    <Button type="primary" css="btn-sm" onclick={() => shiftDay(1)}>▶</Button>
     <Badge color="blue" class="px-3 py-1.5 capitalize">{weekdayLabel}</Badge>
     {#if saved}
       <Badge color="green">Сохранено</Badge>
@@ -265,7 +265,7 @@
 {/if}
 
 <div class="mt-6 flex justify-end gap-3">
-  <Button color="green" onclick={save}>Сохранить</Button>
-  <Button color="green" outline onclick={saveAndClose}>Сохранить и закрыть</Button>
-  <Button color="red" outline onclick={exit}>Выход</Button>
+  <Button type="primary"   onclick={save}>Сохранить</Button>
+  <Button type="primary" onclick={saveAndClose}>Сохранить и закрыть</Button>
+  <Button type="danger"    onclick={exit}>Выход</Button>
 </div>
