@@ -22,17 +22,14 @@
     'h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white';
 </script>
 
-<div class="h-screen bg-gray-50 dark:bg-gray-900">
+<div class="flex h-screen flex-col bg-gray-50 dark:bg-gray-900">
   <!-- Верхняя панель -->
-  <div class="flex items-center gap-3 border-b border-gray-200 px-4 py-2 dark:border-gray-700">
+  <div class="flex shrink-0 items-center gap-3 border-b border-gray-200 px-4 py-2 dark:border-gray-700">
     <SidebarButton onclick={toggle} />
-    <!-- <span class="text-lg font-semibold text-gray-900 dark:text-white">
-      Учёт рабочего времени
-    </span> -->
   </div>
 
   <!-- Сайдбар + контент -->
-  <div class="flex h-[calc(100vh-57px)]">
+  <div class="flex min-h-0 flex-1">
     <Sidebar
       {activeUrl}
       backdrop={false}
@@ -66,7 +63,7 @@
     </Sidebar>
 
     <!-- Пустая область под контент раздела -->
-    <main class="flex-1 overflow-y-auto p-4">
+    <main class="flex min-h-0 flex-1 flex-col overflow-y-auto p-4">
       <slot />
     </main>
   </div>
